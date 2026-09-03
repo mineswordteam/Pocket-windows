@@ -1,4 +1,8 @@
-node_modules/
+```
+# Directories that might contain build artifacts or dependencies
+bochs-wasm/
+container2wasm/
+```node_modules/
 .next/
 dist/
 build/
