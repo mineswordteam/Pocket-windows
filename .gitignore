@@ -118,3 +118,4 @@ zig-cache/
 
 ```.next/
 dist/
+.next/
