@@ -1,40 +1,5 @@
-```
-# Build artifacts and binaries
-*.iso
-*.html
-VGABIOS-lgpl-latest
-BIOS-bochs-latest
-
-# Dependencies and temporary files
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.tmp
-
-# Logs
-*.log
-
-# Environment files
-.env
-.env.local
-*.env.*
-
-# Editors and IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Coverage and testing
-.coverage
-coverage/
-htmlcov/
-
-# Distribution and build directories
+Nothing should be ignored based on the provided file changes, as they consist only of source/config files (.md files) without any build artifacts, dependencies, or temporary files.node_modules/
+.next/
 dist/
 build/
-target/
-```node_modules/
-.next/
-node_modules/
+*.log

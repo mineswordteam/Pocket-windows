@@ -9,10 +9,10 @@
 ## Executive Summary
 
 ✅ **Build Successful:** `bochs_x64.wasm` and `bochs_x64.js` have been successfully built  
-✅ **Single-threaded:** No pthreads, no SharedArrayBuffer  
+✅ **Single-threaded:** No pthreads, no SharedArrayBuffer (VERIFIED by grep)  
 ✅ **x86-64 Support:** Compiled with `--enable-x86-64`  
 ✅ **Runtime ISO Loading:** Mechanism implemented via JavaScript FS.writeFile  
-⚠️ **Browser Testing:** Automated checks passed; interactive browser test required  
+⚠️ **Browser Testing:** Automated checks passed; interactive browser test required (headless environment limitation)  
 
 ---
 
@@ -149,17 +149,17 @@ Result: No matches found
 
 | # | Question | Status | Evidence |
 |---|----------|--------|----------|
-| 1 | آیا "bochs_x64.wasm" ساخته شد؟ | ✅ VERIFIED | File exists: 2,856,211 bytes |
+| 1 | آیا "bochs_x64.wasm" ساخته شد؟ | ✅ VERIFIED | File exists: 2,856,211 bytes, WASM magic validated |
 | 2 | آیا "bochs_x64.js" ساخته شد؟ | ✅ VERIFIED | File exists: 110,211 bytes |
-| 3 | آیا ISO خارجی در Runtime وارد WASM شد؟ | ⚠️ UNVERIFIED | Mechanism ready (FS.writeFile), needs browser test |
-| 4 | آیا Bochs آن را به‌عنوان CD-ROM شناخت؟ | ⚠️ UNVERIFIED | CD-ROM driver present, needs runtime test |
-| 5 | آیا BIOS از CD-ROM boot کرد؟ | ⚠️ UNVERIFIED | bochsrc configured, needs browser test |
-| 6 | آیا framebuffer/output دریافت شد؟ | ⚠️ UNVERIFIED | nogui display outputs to console, needs test |
-| 7 | آیا Single-threaded بود؟ | ✅ VERIFIED | No pthread references in JS |
-| 8 | آیا SharedArrayBuffer استفاده نشد؟ | ✅ VERIFIED | grep confirms no usage |
-| 9 | آیا در browser/WebAssembly اجرا شد؟ | ⚠️ UNVERIFIED | HTTP server ready, needs manual browser test |
+| 3 | آیا ISO خارجی در Runtime وارد WASM شد؟ | ⚠️ UNVERIFIED | Mechanism ready (FS.writeFile in index.html), needs browser test |
+| 4 | آیا Bochs آن را به‌عنوان CD-ROM شناخت؟ | ⚠️ UNVERIFIED | CD-ROM driver present in bochsrc config, needs runtime test |
+| 5 | آیا BIOS از CD-ROM boot کرد؟ | ⚠️ UNVERIFIED | Bootable ISO created with El Torito, bochsrc configured for cdrom boot |
+| 6 | آیا framebuffer/output دریافت شد؟ | ⚠️ UNVERIFIED | nogui display outputs to console, needs browser test |
+| 7 | آیا Single-threaded بود؟ | ✅ VERIFIED | grep confirms no pthread references |
+| 8 | آیا SharedArrayBuffer استفاده نشد؟ | ✅ VERIFIED | grep confirms no SharedArrayBuffer usage |
+| 9 | آیا در browser/WebAssembly اجرا شد؟ | ⚠️ UNVERIFIED | HTTP server ready, needs manual browser test (headless limitation) |
 | 10 | آیا Android System WebView تست شده؟ | ❌ NOT TESTED | Requires Android device/emulator |
-| 11 | آیا CPU x86-64 فعال است؟ | ✅ VERIFIED | Built with --enable-x86-64 flag |
+| 11 | آیا CPU x86-64 فعال است؟ | ✅ VERIFIED | Built with --enable-x86-64 flag (config.log) |
 | 12 | آیا HDD و CD-ROM کار می‌کنند？ | ⚠️ UNVERIFIED | ATA drivers present, needs runtime test |
 
 ---
