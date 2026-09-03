@@ -3,3 +3,4 @@ Nothing should be ignored based on the provided file changes, as they consist on
 dist/
 build/
 *.log
+node_modules/
