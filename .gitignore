@@ -5,3 +5,4 @@ c2w/
 dist/
 build/
 *.log
+node_modules/
