@@ -7,3 +7,4 @@ container2wasm/
 dist/
 build/
 *.log
+node_modules/
