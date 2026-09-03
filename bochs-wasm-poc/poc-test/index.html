@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bochs WASM PoC - Runtime ISO Boot</title>
+    <style>
+        body { font-family: monospace; background: #000; color: #0f0; padding: 20px; }
+        #output { white-space: pre; background: #111; padding: 10px; border: 1px solid #333; min-height: 400px; }
+        #status { color: #ff0; margin-bottom: 10px; }
+        button { background: #0f0; color: #000; padding: 10px 20px; border: none; cursor: pointer; margin: 5px; }
+        button:hover { background: #ff0; }
+        input[type="file"] { margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Bochs x86-64 WASM PoC</h1>
+    <div id="status">Status: Waiting for user action...</div>
+    
+    <div>
+        <label>Select BIOS file (BIOS-bochs-latest): </label>
+        <input type="file" id="biosFile" accept=".bin,.rom">
+    </div>
+    <div>
+        <label>Select VGABIOS file (VGABIOS-lgpl-latest): </label>
+        <input type="file" id="vgabiosFile" accept=".bin,.rom">
+    </div>
+    <div>
+        <label>Select Boot ISO: </label>
+        <input type="file" id="isoFile" accept=".iso">
+    </div>
+    
+    <button onclick="startBochs()">Start Bochs</button>
+    <button onclick="resetBochs()">Reset</button>
+    
+    <div id="output"></div>
+    
+    <script>
+        let bochsModule = null;
+        let outputDiv = document.getElementById('output');
+        let statusDiv = document.getElementById('status');
+        
+        function log(msg) {
+            outputDiv.textContent += msg + '\n';
+            outputDiv.scrollTop = outputDiv.scrollHeight;
+            console.log(msg);
+        }
+        
+        function setStatus(msg) {
+            statusDiv.textContent = 'Status: ' + msg;
+        }
+        
+        async function readFileAsArrayBuffer(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsArrayBuffer(file);
+            });
+        }
+        
+        async function startBochs() {
+            const biosFile = document.getElementById('biosFile').files[0];
+            const vgabiosFile = document.getElementById('vgabiosFile').files[0];
+            const isoFile = document.getElementById('isoFile').files[0];
+            
+            if (!biosFile || !vgabiosFile || !isoFile) {
+                setStatus('ERROR: Please select all required files (BIOS, VGABIOS, ISO)');
+                return;
+            }
+            
+            setStatus('Loading Bochs WASM module...');
+            outputDiv.textContent = '';
+            
+            try {
+                // Load the Bochs module
+                const Module = {
+                    print: (text) => log(text),
+                    printErr: (text) => log('[ERR] ' + text),
+                    onRuntimeInitialized: () => {
+                        setStatus('Bochs runtime initialized!');
+                        log('Bochs WASM loaded successfully');
+                        
+                        // Write files to virtual filesystem
+                        log('Writing BIOS to virtual filesystem...');
+                        readFileAsArrayBuffer(biosFile).then(biosData => {
+                            FS = Module.FS;
+                            FS.mkdir('/pack');
+                            FS.writeFile('/pack/BIOS-bochs-latest', new Uint8Array(biosData));
+                            log('BIOS written (' + biosData.byteLength + ' bytes)');
+                            
+                            return readFileAsArrayBuffer(vgabiosFile);
+                        }).then(vgabiosData => {
+                            FS.writeFile('/pack/VGABIOS-lgpl-latest', new Uint8Array(vgabiosData));
+                            log('VGABIOS written (' + vgabiosData.byteLength + ' bytes)');
+                            
+                            return readFileAsArrayBuffer(isoFile);
+                        }).then(isoData => {
+                            FS.writeFile('/pack/boot.iso', new Uint8Array(isoData));
+                            log('ISO written (' + isoData.byteLength + ' bytes)');
+                            
+                            // Create bochsrc config
+                            const bochsrc = `
+megs: 128
+romimage: file=/pack/BIOS-bochs-latest
+vgaromimage: file=/pack/VGABIOS-lgpl-latest
+ata0: enabled=1, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14
+ata0-master: type=cdrom, path="/pack/boot.iso", status=inserted
+boot: cdrom
+mouse: enabled=0
+cpu: ips=40000000, model=corei7_haswell_4770
+clock: sync=slowdown, rtc_sync=0, time0=local
+display_library: nogui
+vga: extension=none, realtime=0, update_freq=1, ddc=disabled
+`;
+                            FS.writeFile('/pack/bochsrc', bochsrc);
+                            log('bochsrc created');
+                            
+                            setStatus('Starting Bochs emulation...');
+                            log('--- BOCHS BOOT LOG ---');
+                            
+                            // Try to run bochs main
+                            try {
+                                // Call main with bochsrc argument
+                                const result = Module._main(2, Module.stringToUTF8OnStack('-f\n/pack/bochsrc'));
+                                log('Bochs returned: ' + result);
+                            } catch (e) {
+                                log('Bochs execution error: ' + e);
+                            }
+                        });
+                    },
+                    noExitRuntime: true,
+                    locateFile: (path) => {
+                        if (path.endsWith('.wasm')) {
+                            return 'bochs_x64.wasm';
+                        }
+                        return path;
+                    }
+                };
+                
+                // Load the JS module
+                const script = document.createElement('script');
+                script.src = 'bochs_x64.js';
+                script.onload = () => {
+                    window.Module = Module;
+                };
+                document.head.appendChild(script);
+                
+            } catch (error) {
+                setStatus('ERROR: ' + error.message);
+                log('Error: ' + error);
+            }
+        }
+        
+        function resetBochs() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>
