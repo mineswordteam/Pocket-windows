@@ -1,56 +1,39 @@
 ```
-# Build artifacts and compiled files
-*.wasm
-*.o
-*.obj
-*.out
-*.exe
-*.dll
-*.so
-*.a
-
-# Dependency directories
-emsdk/
-
-# Build directories
-build/
-build-wasm/
-bochs-wasm-build/
-
-# Configuration and status files
-config.h
-config.status
-bxversion.h
-bxversion.rc
-
-# SVN metadata
-.bochsrc
-.conf.*
-
-# Makefiles
-Makefile
-Makefile.in
+# Build artifacts and executables
+a.out.js
+bochs-official/build-wasm-final/
+bochs_x64.js
+pocket-windows-transfer/bochs_x64.js
 
 # IDE and editor files
 .vscode/
 .idea/
-*.swp
-*.swo
-*.tmp
-
-# System files
-.DS_Store
-Thumbs.db
 
 # Logs
 *.log
 
-# Coverage
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Configuration and state files
+*.swp
+*.swo
+*.tmp
+
+# Environment files
+.env
+.env.local
+*.env.*
+
+# Coverage reports
 coverage/
 htmlcov/
-.coverage
 
-# Compressed files
+# Debug symbols
+*.dSYM/
+
+# Compressed archives
 *.zip
 *.gz
 *.tar
@@ -77,4 +60,4 @@ htmlcov/
 ```node_modules/
 .next/
 dist/
-node_modules/
+build/

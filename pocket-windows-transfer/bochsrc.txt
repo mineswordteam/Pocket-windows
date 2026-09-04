@@ -1,0 +1,28 @@
+# Bochs configuration file for WASM build
+
+# ROM images
+romimage: file=BIOS-bochs-latest, address=0xf0000
+vgaromimage: file=VGABIOS-lgpl-latest
+
+# CPU and memory settings
+megs: 128
+cpu: count=1, level=6, x86_64=1, mmx=1, sse=1, sse2=1, sse3=1, ssse3=1, sse4_1=1, sse4_2=1, apic=1
+
+# Display - using nogui since we're in WASM
+display_library: nogui
+
+# Boot from CD-ROM
+boot: cdrom
+
+# CD-ROM drive with ISO image
+ata0-master: type=cdrom, path=\"test.iso\", status=inserted
+
+# Log file
+log: bochs.log
+
+# Disable mouse and keyboard (not needed for boot test)
+mouse: enabled=0
+keyboard: type=mf
+
+# VGA settings
+vga: update_freq=5
