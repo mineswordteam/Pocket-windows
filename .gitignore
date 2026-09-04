@@ -1,69 +1,42 @@
 ```
-# Build artifacts and dependencies
-bochs-official-src/
-emsdk/
+# Build artifacts and executables
+bochs-official/build-wasm-final/
+bochs-official/bochs-wasm-build/
 
-# Common build/cache directories
-build/
-dist/
-target/
+# WASM files
+*.wasm
+*.js
+
+# Executables
+bochs
+bximage
+
+# Build system files
+Makefile
+config.status
+libtool
+ltdlconf.h
+bxversion.h
+bxversion.rc
+config.h
+
+# Temporary and intermediate files
 *.o
 *.obj
+*.a
 *.so
 *.dll
 *.exe
-*.a
 *.out
-
-# Package managers
-node_modules/
-__pycache__/
-*.pyc
-.venv/
-venv/
-.env
-.env.local
-.env.*
-
-# Editors and IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
 
 # Logs and temporary files
 *.log
-coverage/
-htmlcov/
-.coverage
+*.tmp
 
-# OS files
-.DS_Store
-Thumbs.db
-
-# Compression and archives
-*.zip
-*.gz
-*.tar
-*.tgz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.zst
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
-*.Z
-*.lz
-*.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.tar.zst
-```.next/
+# Backup files
+*.bak
+*~
+```node_modules/
 .next/
+dist/
+build/
