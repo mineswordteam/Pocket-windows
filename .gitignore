@@ -1,44 +1,49 @@
 ```
-# Environment variables
-.env
-.env.local
-*.env.*
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
+build/
+dist/
+target/
 
-# Logs
+# Dependencies
+.venv/
+venv/
+node_modules/
+.julia/
+zig*/
+.deps/
+.mypy_cache/
+.pytest_cache/
+.coverage
+coverage/
+htmlcov/
+
+# Logs and temp files
 *.log
-
-# Temporary files
 *.tmp
 *.swp
 *.swo
 
-# Build artifacts
-dist/
-build/
-target/
+# Environment
+.env
+.env.local
+*.env.*
 
-# Dependencies
-node_modules/
-venv/
-.venv/
-__pycache__/
-*.egg-info/
-.Python
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Coverage reports
-coverage/
-htmlcov/
-.coverage
-
-# IDE specific
+# Editors
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# OS generated
+# System files
 .DS_Store
 Thumbs.db
 
@@ -61,5 +66,8 @@ Thumbs.db
 *.Z
 *.lz
 *.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
 ```.next/
-.next/
