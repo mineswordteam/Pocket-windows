@@ -1,43 +1,78 @@
 ```
-# Build artifacts and executables
-bochs-official/build-wasm-final/
-bochs-official/bochs-wasm-build/
+# SVN directories
+.svn/
 
-# WASM files
-*.wasm
-*.js
-
-# Executables
-bochs
-bximage
-
-# Build system files
-Makefile
-config.status
-libtool
-ltdlconf.h
-bxversion.h
-bxversion.rc
-config.h
-
-# Temporary and intermediate files
+# Build artifacts and dependencies
+build/
+dist/
 *.o
 *.obj
 *.a
 *.so
+*.dylib
 *.dll
 *.exe
 *.out
 
+# Environment and dependency directories
+.venv/
+venv/
+env/
+node_modules/
+target/
+.gradle/
+.mypy_cache/
+.pytest_cache/
+__pycache__/
+*.egg-info/
+
 # Logs and temporary files
 *.log
 *.tmp
+*.swp
+*.swo
 
-# Backup files
-*.bak
-*~
-```node_modules/
-.next/
-dist/
-build/
-node_modules/
+# System files
+.DS_Store
+Thumbs.db
+
+# Configuration and sensitive files
+.env
+.env.local
+*.env.*
+
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Compressed files
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
+```.next/
