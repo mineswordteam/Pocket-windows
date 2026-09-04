@@ -1,24 +1,37 @@
 ```
 # Build artifacts and compiled files
+*.wasm
 *.o
 *.obj
+*.out
 *.exe
 *.dll
 *.so
 *.a
-*.out
 
-# Dependencies and virtual environments
-node_modules/
-venv/
-.venv/
-__pycache__/
-.mypy_cache/
-.pytest_cache/
-target/
-.gradle/
+# Dependency directories
+emsdk/
 
-# Editor/IDE files
+# Build directories
+build/
+build-wasm/
+bochs-wasm-build/
+
+# Configuration and status files
+config.h
+config.status
+bxversion.h
+bxversion.rc
+
+# SVN metadata
+.bochsrc
+.conf.*
+
+# Makefiles
+Makefile
+Makefile.in
+
+# IDE and editor files
 .vscode/
 .idea/
 *.swp
@@ -28,12 +41,11 @@ target/
 # System files
 .DS_Store
 Thumbs.db
-.env
-.env.local
-*.env.*
 
-# Logs and coverage
+# Logs
 *.log
+
+# Coverage
 coverage/
 htmlcov/
 .coverage
@@ -61,7 +73,7 @@ htmlcov/
 *.tar.bz2
 *.tar.xz
 *.tar.zst
-```.next/
-dist/
-build/
+
+```node_modules/
 .next/
+dist/
