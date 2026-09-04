@@ -40,3 +40,4 @@ config.h
 .next/
 dist/
 build/
+node_modules/
