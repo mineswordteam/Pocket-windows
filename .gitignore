@@ -1,39 +1,44 @@
 ```
-# Build artifacts and executables
-a.out.js
-bochs-official/build-wasm-final/
-bochs_x64.js
-pocket-windows-transfer/bochs_x64.js
-
-# IDE and editor files
-.vscode/
-.idea/
-
-# Logs
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
+# Dependencies
+.venv/
+venv/
+node_modules/
+.mypy_cache/
+.pytest_cache/
+dist/
+build/
+target/
+.gradle/
+# Logs and temp files
 *.log
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Configuration and state files
+*.tmp
 *.swp
 *.swo
-*.tmp
-
-# Environment files
+# Environment
 .env
 .env.local
 *.env.*
-
-# Coverage reports
+# Editors
+.vscode/
+.idea/
+# System files
+.DS_Store
+Thumbs.db
+# Coverage
 coverage/
 htmlcov/
-
-# Debug symbols
-*.dSYM/
-
-# Compressed archives
+.coverage
+# Compressed files
 *.zip
 *.gz
 *.tar
@@ -56,9 +61,4 @@ htmlcov/
 *.tar.bz2
 *.tar.xz
 *.tar.zst
-
-```node_modules/
-.next/
-dist/
-build/
-node_modules/
+```.next/
