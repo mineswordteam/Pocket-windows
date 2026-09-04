@@ -39,3 +39,4 @@ htmlcov/
 dist/
 build/
 ```.next/
+.next/
