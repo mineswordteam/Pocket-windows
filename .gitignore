@@ -1,67 +1,71 @@
 ```
-# Build artifacts
-bochs-official-poc/build-wasm/
+# SVN files
+.bochsrc.svn/
+.svn/
 
-# Compiled object files
+# Build artifacts and dependencies
 *.o
 *.obj
 *.a
+*.lib
 *.so
 *.dll
+*.dylib
 *.exe
+*.out
 
-# WebAssembly files
-*.wasm
+# Build directories
+build/
+dist/
+target/
+bin/
+obj/
 
-# Configuration and build files
-config.status
-libtool
-
-# Temporary and log files
-*.tmp
-*.log
+# Dependencies
+node_modules/
+vendor/
+deps/
 
 # IDE and editor files
 .vscode/
 .idea/
 *.swp
 *.swo
+*.tmp
+
+# Logs
+*.log
 
 # Environment files
 .env
 .env.local
 *.env.*
 
-# Coverage and test reports
+# Coverage reports
 coverage/
 htmlcov/
-*.coverage
 
-# Compressed files
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Configuration backups
+*.bak
+*.orig
+*.rej
+
+# Compressed archives
 *.zip
-*.gz
 *.tar
-*.tgz
+*.gz
 *.bz2
 *.xz
 *.7z
 *.rar
 *.zst
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
-*.Z
-*.lz
-*.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.tar.zst
-```node_modules/
-.next/
-dist/
-build/
-node_modules/
+
+# Temporary files
+*.tmp
+*~
+\#*\#
+```.next/
