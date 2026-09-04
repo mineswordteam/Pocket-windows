@@ -1,79 +1,41 @@
 ```
-# SVN directories
-.svn/
-
-# Build artifacts and dependencies
-build/
-dist/
+# Compiled and build artifacts
+*.pyc
+__pycache__/
 *.o
 *.obj
-*.a
-*.so
-*.dylib
-*.dll
 *.exe
+*.dll
+*.so
+*.a
 *.out
-
-# Environment and dependency directories
+# Dependencies
 .venv/
 venv/
-env/
 node_modules/
+.julia/
+zig*/
 target/
 .gradle/
 .mypy_cache/
 .pytest_cache/
-__pycache__/
-*.egg-info/
-
-# Logs and temporary files
+# Logs and temp files
 *.log
 *.tmp
 *.swp
 *.swo
-
-# System files
-.DS_Store
-Thumbs.db
-
-# Configuration and sensitive files
+# Environment
 .env
 .env.local
 *.env.*
-
-# Coverage reports
+# Editors
+.vscode/
+.idea/
+# Coverage
 coverage/
 htmlcov/
 .coverage
-
-# Editor and IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Compressed files
-*.zip
-*.gz
-*.tar
-*.tgz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.zst
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
-*.Z
-*.lz
-*.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.tar.zst
+# Distribution packages
+dist/
+build/
 ```.next/
-.next/
