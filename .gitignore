@@ -1,5 +1,19 @@
 ```
-# Build artifacts and executables
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+.julia/
+zig-cache/
+zig-out/
+
+# Build artifacts
+dist/
+build/
+target/
 *.o
 *.obj
 *.exe
@@ -7,34 +21,32 @@
 *.so
 *.a
 *.out
-a.out.js
-a.out.wasm
-a.wasm
-bochs.wasm
-bximage.wasm
-bochs_x64.js
-bochs_x64.wasm
+*.pyc
+*.class
 
-# Build directories
-build/
-build-wasm-final/
-
-# Configuration and generated files
-config.h
-Makefile
-
-# IDE and editor files
-.vscode/
-.idea/
+# Logs and temp files
+*.log
+*.tmp
 *.swp
 *.swo
 
-# Logs
-*.log
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
 
 # System files
 .DS_Store
 Thumbs.db
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
 
 # Compressed files
 *.zip
@@ -59,8 +71,4 @@ Thumbs.db
 *.tar.bz2
 *.tar.xz
 *.tar.zst
-
-```node_modules/
-.next/
-dist/
-node_modules/
+```.next/
