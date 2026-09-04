@@ -1,72 +1,68 @@
 ```
-# SVN files
-.bochsrc.svn/
-.svn/
-
 # Build artifacts and dependencies
-*.o
-*.obj
-*.a
-*.lib
-*.so
-*.dll
-*.dylib
-*.exe
-*.out
+bochs-official-src/
+emsdk/
 
-# Build directories
+# Common build/cache directories
 build/
 dist/
 target/
-bin/
-obj/
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+*.a
+*.out
 
-# Dependencies
+# Package managers
 node_modules/
-vendor/
-deps/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.env.local
+.env.*
 
-# IDE and editor files
+# Editors and IDEs
 .vscode/
 .idea/
 *.swp
 *.swo
 *.tmp
 
-# Logs
+# Logs and temporary files
 *.log
-
-# Environment files
-.env
-.env.local
-*.env.*
-
-# Coverage reports
 coverage/
 htmlcov/
+.coverage
 
-# OS specific
+# OS files
 .DS_Store
 Thumbs.db
 
-# Configuration backups
-*.bak
-*.orig
-*.rej
-
-# Compressed archives
+# Compression and archives
 *.zip
-*.tar
 *.gz
+*.tar
+*.tgz
 *.bz2
 *.xz
 *.7z
 *.rar
 *.zst
-
-# Temporary files
-*.tmp
-*~
-\#*\#
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
 ```.next/
-.next/
