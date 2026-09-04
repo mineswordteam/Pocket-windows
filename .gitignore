@@ -1,74 +1,38 @@
 ```
-# Compiled and build artifacts
-*.pyc
-__pycache__/
-*.o
-*.obj
-*.exe
-*.dll
-*.so
-*.a
-*.out
-build/
-dist/
-target/
+# Directories
+bochs-official-src/
 
-# Dependencies
-.venv/
-venv/
-node_modules/
-.julia/
-zig*/
-.deps/
-.mypy_cache/
-.pytest_cache/
-.coverage
-coverage/
-htmlcov/
+# Build artifacts and dependencies (if any subdirectories exist)
+bochs-official-src/build/
+bochs-official-src/dist/
+bochs-official-src/node_modules/
 
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-*.swo
+# Compiled files (if any extensions exist within the directory)
+bochs-official-src/*.o
+bochs-official-src/*.obj
+bochs-official-src/*.exe
+bochs-official-src/*.dll
+bochs-official-src/*.so
+bochs-official-src/*.pyc
 
-# Environment
-.env
-.env.local
-*.env.*
+# IDE and editor files
+bochs-official-src/.vscode/
+bochs-official-src/.idea/
+bochs-official-src/*.swp
+bochs-official-src/*.swo
 
-# Editors
-.vscode/
-.idea/
-*.swp
-*.swo
+# Environment files
+bochs-official-src/.env
+bochs-official-src/.env.local
+bochs-official-src/*.env.*
 
-# System files
-.DS_Store
-Thumbs.db
-
-# Compressed files
-*.zip
-*.gz
-*.tar
-*.tgz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.zst
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
-*.Z
-*.lz
-*.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.tar.zst
-```.next/
+# Logs and temporary files
+bochs-official-src/*.log
+bochs-official-src/*.tmp
+bochs-official-src/coverage/
+bochs-official-src/htmlcov/
+```node_modules/
 .next/
+dist/
+build/
+*.log
