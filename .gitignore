@@ -1,4 +1,42 @@
 ```
-# Build artifacts
-bochs-official/build-wasm-final/
+# Compiled and build artifacts
+*.wasm
+*.pyc
+*.class
+*.o
+*.exe
+*.dll
+*.so
+*.a
+*.obj
+*.out
+# Dependencies
+node_modules/
+venv/
+.venv/
+__pycache__/
+dist/
+build/
+target/
+.gradle/
+.mypy_cache/
+.pytest_cache/
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+# Environment
+.env
+.env.local
+*.env.*
+# Editors
+.vscode/
+.idea/
+# System files
+.DS_Store
+Thumbs.db
+# Coverage
+coverage/
+htmlcov/
+.coverage
 ```
