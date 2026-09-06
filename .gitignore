@@ -1,39 +1,8 @@
 ```
-# Directories
+# Build artifacts
 bochs-official-src/
-
-# Build artifacts and dependencies (if any subdirectories exist)
-bochs-official-src/build/
-bochs-official-src/dist/
-bochs-official-src/node_modules/
-
-# Compiled files (if any extensions exist within the directory)
-bochs-official-src/*.o
-bochs-official-src/*.obj
-bochs-official-src/*.exe
-bochs-official-src/*.dll
-bochs-official-src/*.so
-bochs-official-src/*.pyc
-
-# IDE and editor files
-bochs-official-src/.vscode/
-bochs-official-src/.idea/
-bochs-official-src/*.swp
-bochs-official-src/*.swo
-
-# Environment files
-bochs-official-src/.env
-bochs-official-src/.env.local
-bochs-official-src/*.env.*
-
-# Logs and temporary files
-bochs-official-src/*.log
-bochs-official-src/*.tmp
-bochs-official-src/coverage/
-bochs-official-src/htmlcov/
 ```node_modules/
 .next/
 dist/
 build/
 *.log
-node_modules/
