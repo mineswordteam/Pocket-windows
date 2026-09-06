@@ -1,95 +1,50 @@
 ```
-# Build artifacts and compiled files
-*.o
-*.obj
-*.exe
-*.dll
-*.so
-*.a
-*.class
-*.pyc
-__pycache__/
-
 # Dependencies
 node_modules/
 venv/
 .venv/
-.env
-.env.local
-*.env.*
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+target/
+.gradle/
 
-# Editors and IDEs
+# Compiled/Binary files
+*.pyc
+*.class
+*.o
+*.exe
+*.dll
+*.so
+*.a
+*.obj
+*.out
+
+# Build artifacts
+dist/
+build/
+coverage/
+htmlcov/
+*.egg-info/
+
+# Editor/IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
+*.tmp
 
 # System files
 .DS_Store
 Thumbs.db
+.env
+.env.local
+*.env.*
 
-# Logs and temp files
+# Logs
 *.log
-*.tmp
 
-# Coverage and testing
-.coverage
-coverage/
-htmlcov/
-
-# Distribution and build directories
-dist/
-build/
-target/
-.gradle/
-
-# Python specific
-*.pyc
-__pycache__/
-*.pyo
-*.pyd
-.Python
-*.so
-*.egg-info/
-.eggs/
-
-# C/C++ specific
-*.out
-*.a
-*.lib
-*.obj
-*.o
-*.so
-*.dylib
-*.dll
-
-# Java specific
-*.class
-*.jar
-*.war
-*.ear
-hs_err_pid*
-
-# Node.js specific
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Ruby specific
-*.gem
-*.rbc
-.bundle/
-vendor/bundle/
-
-# Go specific
-*.exe
-*.test
-*.prof
-
-# Rust specific
-*.rlib
-
-# Compression files
+# Compressed files
 *.zip
 *.gz
 *.tar
@@ -108,8 +63,4 @@ vendor/bundle/
 *.Z
 *.lz
 *.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.tar.zst
-```.next/
+```
