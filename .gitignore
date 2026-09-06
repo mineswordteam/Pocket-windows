@@ -36,3 +36,4 @@ bochs-official-src/htmlcov/
 dist/
 build/
 *.log
+node_modules/
