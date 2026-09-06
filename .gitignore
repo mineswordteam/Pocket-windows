@@ -6,4 +6,3 @@ bochs-official-src/
 dist/
 build/
 *.log
-node_modules/
