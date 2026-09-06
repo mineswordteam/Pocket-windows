@@ -1,0 +1,6 @@
+# Test Bochs configuration for WASM
+megs: 128
+romimage: file=BIOS-bochs-latest
+vgaromimage: file=VGABIOS-lgpl-latest
+boot: disk
+ata0-master: type=disk, path=test.img, cylinders=1024, heads=4, spt=32
